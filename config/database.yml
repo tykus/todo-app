@@ -13,8 +13,8 @@ development:
   encoding: utf8
   database: todo-app_development
   pool: 5
-  username: root
-  password:
+  username: todo-app
+  password: VQme6XYXLQPxNSru
   socket: /tmp/mysql.sock
 
 # Warning: The database defined as "test" will be erased and
