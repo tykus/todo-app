@@ -1,13 +1,15 @@
 TodoApp::Application.routes.draw do
-  get "projects/index"
-  get "projects/show"
-  get "projects/delete"
-  get "projects/new"
-  get "projects/edit"
-  resources :tasks do
+  resources :projects do
     member do
       get :delete
     end
+
+    resources :tasks do
+      member do
+        get :delete
+      end
+    end
+    
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
