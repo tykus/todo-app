@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140521103829) do
+ActiveRecord::Schema.define(version: 20140526065513) do
+
+  create_table "projects", force: true do |t|
+    t.string   "title"
+    t.string   "slug"
+    t.text     "description"
+    t.date     "due_date"
+    t.boolean  "completed",   default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "tasks", force: true do |t|
     t.string   "title",       limit: 200

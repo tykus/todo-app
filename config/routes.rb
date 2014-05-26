@@ -1,4 +1,9 @@
 TodoApp::Application.routes.draw do
+  get "projects/index"
+  get "projects/show"
+  get "projects/delete"
+  get "projects/new"
+  get "projects/edit"
   resources :tasks do
     member do
       get :delete
