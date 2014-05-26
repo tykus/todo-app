@@ -1,0 +1,23 @@
+<%= form_for(@project) do |f| %>
+<table>
+	<tr>
+    <th><%= f.label(:title) %></th>
+		<td><%= f.text_field(:title) %></td>
+	</tr>		
+	<tr>
+    <th><%= f.label(:description) %></th>
+		<td><%= f.text_area(:description) %></td>
+	</tr>		
+	<tr>
+    <th><%= f.label(:due_date) %></th>
+		<td><%= f.date_field(:due_date) %></td>
+	</tr>		
+	<tr>
+    <th><%= f.label(:completed) %></th>
+		<td><%= f.check_box(:completed) %></td>
+	</tr>			
+</table>
+<div class="form-actions">
+	<%= submit_tag("Create Project") %>
+</div>
+<% end %>

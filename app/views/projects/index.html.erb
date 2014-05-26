@@ -1,2 +1,23 @@
-<h1>Projects#index</h1>
-<p>Find me in app/views/projects/index.html.erb</p>
+<div class='projects index'>
+	<h2>Projects</h2>
+	<table>
+		<tr>
+			<th>Title</th>
+			<th>Due Date</th>
+			<th>Completed</th>
+			<th>Actions</th>
+		</tr>
+		<% @projects.each do |project| %>
+		<tr>
+			<td><%= project.title %></td>
+			<td><%= project.due_date %></td>
+			<td><%= project.completed %></td>
+			<td>
+				<%= link_to 'Show', project_path(project.id) %>
+				<%= link_to 'Edit', edit_project_path(project.id) %>
+				<%= link_to 'Delete', delete_project_path(project.id) %>
+			</td>
+		</tr>
+		<% end %>
+	</table>
+</div>
