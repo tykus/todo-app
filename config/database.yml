@@ -13,7 +13,7 @@ development:
   encoding: utf8
   database: todo-app_development
   pool: 5
-  username: todo-app
+  username: todo-app-user
   password: VQme6XYXLQPxNSru
   socket: /tmp/mysql.sock
 

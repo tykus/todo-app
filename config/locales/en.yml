@@ -23,5 +23,5 @@ en:
   number:
     currency:
       format: 
-        format: %n%u
-        unit: &euro;
+        format: "%n%u"
+        unit: "&euro;"

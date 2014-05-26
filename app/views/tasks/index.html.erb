@@ -1,0 +1,22 @@
+<div class='tasks index'>
+	<table>
+		<tr>
+			<th>Title</th>
+			<th>Due Date</th>
+			<th>Completed</th>
+			<th>Actions</th>
+		</tr>
+		<% @tasks.each do |task| %>
+		<tr>
+			<td><%= link_to(task.title, task_path(task.id)) %></td>
+			<td><%= task.due_date %></td>
+			<td><%= task.completed %></td>
+			<td>
+				<%= link_to 'Show', task_path(task.id) %>
+				<%= link_to 'Edit', edit_task_path(task.id) %>
+				<%= link_to 'Delete', delete_task_path(task.id) %>
+			</td>
+		</tr>
+		<% end %>
+	</table>
+</div>
