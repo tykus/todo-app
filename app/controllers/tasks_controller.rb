@@ -1,10 +1,12 @@
 class TasksController < ApplicationController
-	before_action :find_task, :only => [:show, :edit, :update, :delete, :destroy]
 
 	layout false
+	
+	before_action :find_task, :except => [:index, :new, :create]
+	before_action :find_project
 
 	def index
-		@tasks = Task.all
+		@tasks = @project.tasks
 	end
 
 	def show
@@ -17,7 +19,7 @@ class TasksController < ApplicationController
 	def create
 		@task = Task.new(task_params)
 
-		if @task.save
+		if @project.tasks << @task
 			redirect_to(:action => 'index')
 		else
 			render('new')
@@ -28,7 +30,7 @@ class TasksController < ApplicationController
 	end
 
 	def update
-		if @task.update_attributes(task_params)
+		if @task.update(task_params)
 			redirect_to(:action => 'index')
 		else
 			render('edit')
@@ -44,11 +46,15 @@ class TasksController < ApplicationController
 	end
 
 	private
+		def find_project
+			@project = Project.find(params[:project_id])
+		end
+
 		def find_task
-			@task = Task.find params[:id]
+			@task = Task.find(params[:id])
 		end
 
 		def task_params
-			params.require(:task).permit(:title, :description, :due_date, :completed)
+			params.require(:task).permit(:title, :description, :due_date, :completed, :project_id)
 		end
 end

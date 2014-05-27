@@ -2,10 +2,10 @@ class ProjectsController < ApplicationController
   
   layout false
 
-  before_action :find_project, :only => [:show, :edit, :update, :delete, :destroy]
+  before_action :find_project, :except => [:index, :new, :create]
 
   def index
-    @projects = Project.all
+    @projects = Project.sorted_by_date.incomplete
   end
 
   def show

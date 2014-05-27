@@ -1,3 +1,9 @@
 <div class="tasks edit">
-	<%= render :partial => 'form', :locals => {:task => @task} %>
+	<h2>Edit Task</h2>
+	<%= form_for(@task, :url => project_task_path(@project, @task)) do |f| %>
+		<%= render :partial => 'form', :locals => {:task => @task, :f => f} %>
+		<div class="form-actions">
+			<%= submit_tag("Update Task") %>
+		</div>
+	<% end %>
 </div>
