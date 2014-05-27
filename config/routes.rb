@@ -1,4 +1,5 @@
 TodoApp::Application.routes.draw do
+  get "public/index"
   resources :projects do
     member do
       get :delete
