@@ -1,4 +1,5 @@
 class TasksController < ApplicationController
+	respond_to :html, :json
 
 	layout false
 	
